@@ -1,0 +1,38 @@
+BoardBuilder GUI Visual Testing
+
+all files should be written to top level of project, with a .pb extension  
+
+GUI should be a grid of 20x20 buttons, that when clicked cycle through possible gadgets.
+Also, a generate board button and board name text field are also present
+
+Generate Board File:
+	pressing generate button without any interaction:
+		should write file deafultName.pb with one line: "board name=deafultName"
+	
+	generating board without supplying a board name:
+		first line should always be "board name=deafultName" and have filename deafultName.pb
+		
+	generating board supplying a board name:
+		first line should always be "board name=BOARD_NAME" and have filename BOARD_NAME.pb, where BOARD_NAME
+			is the supplied board name
+	
+	generating a board with only one ball:
+		second line should be "ball name=ballAtX_Y x=X y=Y xVelocity=0.0 yVelocity=0.0" where X 
+			and Y are the chosen coordinates of the ball 
+	
+	triangleBumper:
+		should have line "triangleBumper name=triangleBumperAtX_Y x=X y=Y orientation=ANGLE" where X 
+			and Y are the chosen coordinates of the gadget and ANGLE is the chosen angle:
+				-test all four angles to make sure they cycle through 0, 90, 180, and 270 degrees
+				
+	squareBumper:
+		should have line "squareBumper name=squareBumperAtX_Y x=X y=Y" where X 
+			and Y are the chosen coordinates of the gadget
+	
+	circleBumper:
+		should have line "circleBumper name=circleBumperAtX_Y x=X y=Y" where X 
+			and Y are the chosen coordinates of the gadget	 
+			
+	portal:
+		should have line "portal name=portalAtX_Y x=X y=Y  otherBoard=NAME otherPortal=NAME" where X 
+			and Y are the chosen coordinates of the gadget

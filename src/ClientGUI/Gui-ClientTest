@@ -1,0 +1,62 @@
+Tests for GUI and clients through GUI:
+
+Visual basic test:
+	no arguments:
+		should play the default board
+		should play automatically
+		
+	load board:
+		should start the board with the configuration specified with the board file
+		start playing immediately (balls fall automatically)
+		
+	pause board:
+		freeze all balls from moving
+		if connected to a server, still accept balls
+		connection should not be interrupted:
+			still have connected board name displayed
+			after unpause, balls passing through connected walls should still work
+		
+	resume board
+		continue moving balls
+		confirm that velocities don't change from pausing to unpausing
+		test balls added during pause correctly move after unpause
+	
+	reload board:
+		restarts the board to the state specified by the loaded board file, or default board if none is specified
+		 
+	connect board to server:
+		"Connect" button should change to "Disconnect"
+		On server end, should print out "BoardName connected" as confirmation
+	
+	portals:
+		use portalOne and portalTwo board
+		start server, then portalTwo.pb from command line connecting to server, then portalOne.pb from command line connecting to server 
+		ball should travel from portalOne to portalTwo through the portal
+	
+	connect:
+		connect two boards horizontally:
+			names of maps connected should appear along the walls
+			balls should pass through connected walls
+		connect two boards vertically:
+			same as above
+		disconnect:
+			names should disappear from both boards if they were connected
+			all balls on disconnected client should be removed
+			
+	key control:
+		load keyboardFlippers.pb
+		releasing "r" should flip the leftmost flipper
+		pressing "l" should flip the rightmost flipper
+	
+with command line arguments:
+	only file provided:
+		opens the pb file and starts a single player game
+	
+	file and hostname provided:
+		opens the pb file and connects to the server at hostname, with default port number of 10987
+		
+	file, hostname, and port number 
+		opens the pb file and connects to the server at hostname, with port number provided
+
+
+	
